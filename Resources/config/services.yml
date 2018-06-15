@@ -16,6 +16,7 @@ parameters:
 services:
     akeneo_batch.job_instance_factory:
         class: '%akeneo_batch.job_instance_factory.class%'
+        public: true
         arguments:
             - '%akeneo_batch.entity.job_instance.class%'
 
@@ -56,7 +57,7 @@ services:
             - true
             - null
             - false
-            - '%logs_dir%/batch'
+            - '%kernel.logs_dir%/batch'
 
     akeneo_batch.set_job_execution_log_file_subscriber:
         class: '%akeneo_batch.set_job_execution_log_file_subscriber.class%'
@@ -80,7 +81,7 @@ services:
             - '@event_dispatcher'
             - '%kernel.root_dir%'
             - '%kernel.environment%'
-            - '%logs_dir%'
+            - '%kernel.logs_dir%'
 
     akeneo_batch.entity_manager.persisted_connection_entity_manager:
         class: '%akeneo_batch.entity_manager.persisted_connection_entity_manager.class%'
